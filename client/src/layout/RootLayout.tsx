@@ -57,6 +57,7 @@ export default function RootLayout() {
     {/* 3. Right Column: Dynamic Login/Logout Button */}
     <div className="flex items-center justify-end">
       {/* Replace 'true' with your actual authentication state variable (e.g., isLoggedIn) */}
+      //@ts-ignore
       {true ? (
         <button 
           onClick={() => console.log('logging out...')} 
