@@ -1,7 +1,10 @@
+import  { useState } from "react";
 import { Outlet, NavLink } from "react-router";
 
 export default function RootLayout() {
-  
+
+  const   [isAuthenticated] = useState(true)
+
   const linkStyles = ({ isActive }: { isActive: boolean }) =>
     `flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
       isActive 
@@ -58,7 +61,7 @@ export default function RootLayout() {
     <div className="flex items-center justify-end">
       {/* Replace 'true' with your actual authentication state variable (e.g., isLoggedIn) */}
       //@ts-ignore
-      {true ? (
+      {isAuthenticated ? (
         <button 
           onClick={() => console.log('logging out...')} 
           className="flex items-center gap-1 rounded-xl bg-gray-50 border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
