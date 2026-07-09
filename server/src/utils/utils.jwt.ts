@@ -24,7 +24,7 @@ export class JwtUtils {
     }
 
 
-    static verifyAccessToken(token: string): UserTokenPayload | null {
+    static verifyAccessToken(token: string): UserTokenPayload {
         try {
             const decoded = jwt.verify(token, this.ACCESS_SECRET) as JwtPayload & UserTokenPayload;
 
@@ -32,8 +32,9 @@ export class JwtUtils {
                 userId: decoded.userId,
                 email: decoded.email
             };
+
         } catch (error) {
-            return null;
+            throw error;
         }
     }
 
